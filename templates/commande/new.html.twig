@@ -1,0 +1,123 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}New Commande{% endblock %}
+
+{% block body %}
+
+        <form action="" method="post" >
+        
+   <div class ="container">
+            <div class ="panel panel-primary">
+                <div class ="panel-heading">
+               <i class="icon_menu"></i>Gestion Commande
+            </div>
+             
+                <div class ="panel-body">
+    <table class ="table-condensed">
+        <tr>
+            <td>Numéro commande : </td>
+           <td>{{ numc}}</td>
+            <td>Date Commande : </td>
+            <td>{{ form_widget(form.dateComm) }}</td>
+        </tr>
+         <tr>
+             <td>Client  : </td>
+            <td>{{ form_widget(form.client) }}</td>
+        </tr>
+        <tr>
+            <td>Observation : </td>
+            <td>{{ form_widget(form.observation) }}</td>
+        </tr>
+    </table>
+        <table class ="table">
+           
+            <th class="col-md-1">Produit</th>
+            <th class="col-md-1">Prix Unitaire</th>
+            <th class="col-md-1">Qté</th>
+            <th class="col-md-1">Tva</th>
+            <th class="col-md-1">Mont Ht</th>
+            <th class="col-md-1">Action</th>
+ 
+        <tr>
+            <td class="col-md-1">
+                {{ form_widget(f.produit) }}
+            </td>
+            <td class="col-md-1" >
+              {{ form_widget(f.pv) }}  
+            </td>
+            <td class="col-md-1">
+              {{ form_widget(f.qte) }}
+            </td>
+            <td class="col-md-1">
+               {{ form_widget(f.tva) }}
+            </td>
+             <td class="col-md-1">
+               {{montht}}             
+            </td>
+            
+            <td class="col-md-1">
+                 <input type="submit" value = "Add" name ="bt" 
+                 class = "btn btn-warning"
+                  <i class = "glyphicon glyphicon-save"></i>
+            </td>
+
+        </tr>
+            
+        </table>
+        <table class ="table  table-condensed">
+        <thead class="thead-dark">
+            <tr>
+            <th>Ligne</th>
+                <th class="col-md-2">Désignation Article</th>
+                <th class="col-md-1">PU</th>
+                <th class="col-md-1">Qte</th>
+                <th class="col-md-1">Tva</th>
+                <th class="col-md-1">Mont ht</th>                
+                <th class="col-md-1">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t in lcomm %}
+             <tr>
+               <td class="col-md-2">{{ t.lig}}</td>
+                <td class="col-md-2">{{ t.produit.libelle}}</td>             
+                <td class="col-md-1">{{ t.qte }}</td> 
+                <td class="col-md-1">{{ t.pv }}</td> 
+                <td class="col-md-1">{{ t.tva }}</td> 
+                <td class="col-md-1" >{{ t.qte * t.pv }}</td> 
+                <td class="col-md-1"><a href="{{ path('supprime', {'id': t.lig}) }}" 
+                 class = "btn btn-danger">
+                <i class = "glyphicon glyphicon-apple"></i>
+                Supprimer</a></td>
+
+       {% set  tottht = totht + (t.pv * t.qte) %}
+       {% set  totva = totva + (((t.pv * t.qte) * t.tva) *0.01) %}
+       {% set  totttc = totttc + (( (t.pv * t.qte) *( 100 + t.tva)) *0.01) %}            
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+      
+                             <tfoot>
+            <table class = "table table-condensed">
+            <tr>
+                <td>Tot Ht :</td>
+                <td class="col-md-2">{{ totht}}</td>
+               
+                <td>Tot Tva :</td>
+                <td class="col-md-2">{{totva }}</td>
+                <td>Tot TTC :</td>
+                <td class ="col-md-2">{{  totttc }}</td>
+             </tr>
+           
+                
+            </table>
+             </tfoot>
+<td><input type="submit" value = "Valider" name ="bt"
+ class = "btn btn-success" <i class = "glyphicon glyphicon-save"></i></td>
+  </form>
+    <a href="{{ path('commande_index') }}">back to list</a>
+    
+{% endblock %}
+

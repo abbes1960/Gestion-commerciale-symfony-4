@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+         <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+  <!-- bootstrap theme -->
+  <link href="{{asset('assets/css/bootstrap-theme.css')}}" rel="stylesheet">
+  <!--external css-->
+  <!-- font icon -->
+  <link href="{{asset('assets/css/elegant-icons-style.css')}}" rel="stylesheet" />
+  <link href="{{asset('assets/css/font-awesome.css')}}" rel="stylesheet" />
+  <!-- Custom styles -->
+  <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/style-responsive.css')}}" rel="stylesheet" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+  <!--[if lt IE 9]>
+    <script src="{{asset('assets/js/html5shiv.js')}}"></script>
+    <script src="{{asset('assets/js/respond.min.js')}}"></script>
+    <![endif]-->
+
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

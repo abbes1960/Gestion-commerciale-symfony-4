@@ -1,0 +1,45 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Llivraison index{% endblock %}
+
+{% block body %}
+    <h1>Llivraison index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numl</th>
+                <th>Produit</th>
+                <th>Pv</th>
+                <th>Qte</th>
+                <th>Tva</th>
+                <th>Lig</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for llivraison in llivraisons %}
+            <tr>
+                <td>{{ llivraison.id }}</td>
+                <td>{{ llivraison.numl }}</td>
+                <td>{{ llivraison.produit }}</td>
+                <td>{{ llivraison.pv }}</td>
+                <td>{{ llivraison.qte }}</td>
+                <td>{{ llivraison.tva }}</td>
+                <td>{{ llivraison.lig }}</td>
+                <td>
+                    <a href="{{ path('llivraison_show', {'id': llivraison.id}) }}">show</a>
+                    <a href="{{ path('llivraison_edit', {'id': llivraison.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('llivraison_new') }}">Create new</a>
+{% endblock %}

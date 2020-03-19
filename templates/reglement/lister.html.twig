@@ -1,0 +1,34 @@
+{% block body %}
+    <h1  align="center">Liste des Reglements</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Modereg</th>
+                <th>Montant</th>
+                <th>Numpiece</th>
+                <th>Echeance</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for reglement in reglement %}
+            <tr>
+                <td>{{ reglement.id }}</td>
+                <td>{{ reglement.modereg }}</td>
+                <td>{{ reglement.montant }}</td>
+                <td>{{ reglement.numpiece }}</td>
+                <td>{{ reglement.echeance }}</td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('reglement_new') }}">Create</a>
+{% endblock %}

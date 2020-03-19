@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Llivraison{% endblock %}
+
+{% block body %}
+    <h1>Llivraison</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ llivraison.id }}</td>
+            </tr>
+            <tr>
+                <th>Numl</th>
+                <td>{{ llivraison.numl }}</td>
+            </tr>
+            <tr>
+                <th>Pv</th>
+                <td>{{ llivraison.pv }}</td>
+            </tr>
+            <tr>
+                <th>Qte</th>
+                <td>{{ llivraison.qte }}</td>
+            </tr>
+            <tr>
+                <th>Tva</th>
+                <td>{{ llivraison.tva }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('llivraison_index') }}">back to list</a>
+
+    <a href="{{ path('llivraison_edit', {'id': llivraison.id}) }}">edit</a>
+
+    {{ include('llivraison/_delete_form.html.twig') }}
+{% endblock %}

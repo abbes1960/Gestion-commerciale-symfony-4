@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lcommande{% endblock %}
+
+{% block body %}
+    <h1>Lcommande</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ lcommande.id }}</td>
+            </tr>
+            <tr>
+                <th>Numc</th>
+                <td>{{ lcommande.numc }}</td>
+            </tr>
+            <tr>
+                <th>Pv</th>
+                <td>{{ lcommande.pv }}</td>
+            </tr>
+            <tr>
+                <th>Qte</th>
+                <td>{{ lcommande.qte }}</td>
+            </tr>
+            <tr>
+                <th>Tva</th>
+                <td>{{ lcommande.tva }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('lcommande_index') }}">back to list</a>
+
+    <a href="{{ path('lcommande_edit', {'id': lcommande.id}) }}">edit</a>
+
+    {{ include('lcommande/_delete_form.html.twig') }}
+{% endblock %}

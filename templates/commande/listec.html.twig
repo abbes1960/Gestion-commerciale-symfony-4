@@ -1,0 +1,37 @@
+{% block body %}
+    <h1>Commande index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numc</th>
+                <th>DateComm</th>
+                <th>observation</th>
+                <th>totht</th>
+                <th>tottva</th>
+                <th>totttc</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.id }}</td>
+                <td>{{ commande.numc }}</td>
+                <td>{{ commande.dateComm ? commande.dateComm|date('Y-m-d') : '' }}</td>
+                <td>{{ commande.observation }}</td>
+                <td>{{ commande.totht }}</td>
+                <td>{{ commande.tottva }}</td>
+                <td>{{ commande.totttc }}</td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('commande_new') }}">Create</a>
+{% endblock %}

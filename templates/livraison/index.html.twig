@@ -1,0 +1,44 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Livraison index{% endblock %}
+
+{% block body %}
+    <h1>Livraison index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numl</th>
+                <th>Client</th>
+                <th>Dateliv</th>
+                <th>Observation</th>
+                <th>Totht</th>
+                <th>Tottva</th>
+                <th>Totttc</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for livraison in livraisons %}
+            <tr>
+                <td>{{ livraison.id }}</td>
+                <td>{{ livraison.numl }}</td>
+                <td>{{ livraison.client }}</td>
+                <td>{{ livraison.Dateliv ? livraison.Dateliv|date('Y-m-d') : '' }}</td>
+                <td>{{ livraison.observation }}</td>
+                <td>{{ livraison.totht }}</td>
+                <td>{{ livraison.tottva }}</td>
+                <td>{{ livraison.totttc }}</td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('livraison_new') }}"class = "btn btn-success">Create new</a>
+{% endblock %}

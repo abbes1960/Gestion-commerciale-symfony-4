@@ -1,0 +1,34 @@
+{% extends 'template.html.twig' %}
+
+{% block body %}
+ <div class ="container">
+            <div class ="panel panel-primary">
+                <div class ="panel-heading">
+               <i class="icon_menu"></i>New Famille
+            </div>
+             
+                <div class ="panel-body">
+
+{{ form_start(f) }}
+{{ form_widget(f) }}
+{{ form_end(f) }}
+
+<table class="class ="table table-condensed"">
+
+  <thead>
+      <th>ID</th><th>libelle</th>
+  </thead>
+{% for fam in fams %}
+
+<tr>
+<td>{{fam.id}}</td>
+<td>{{fam.libelle}}</td>
+<td class="col-md-1"><a href="{{ path('del_famille', {'id': fam.id}) }}" 
+ class = "btn btn-danger">Delete</a></td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</div>
+</div>
+{% endblock %}

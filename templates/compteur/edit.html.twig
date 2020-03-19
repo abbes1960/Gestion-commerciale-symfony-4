@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Compteur{% endblock %}
+
+{% block body %}
+    <h1>Edit Compteur</h1>
+
+    {{ include('compteur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('compteur_index') }}">back to list</a>
+
+    {{ include('compteur/_delete_form.html.twig') }}
+{% endblock %}

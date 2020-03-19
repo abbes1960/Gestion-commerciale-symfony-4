@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mail{% endblock %}
+
+{% block body %}
+    <h1>Mail</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mail.id }}</td>
+            </tr>
+            <tr>
+                <th>Subject</th>
+                <td>{{ mail.subject }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ mail.mail }}</td>
+            </tr>
+            <tr>
+                <th>Object</th>
+                <td>{{ mail.object }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('mail_index') }}">back to list</a>
+
+    <a href="{{ path('mail_edit', {'id': mail.id}) }}">edit</a>
+
+    {{ include('mail/_delete_form.html.twig') }}
+{% endblock %}

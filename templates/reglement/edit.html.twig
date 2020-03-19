@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Reglement{% endblock %}
+
+{% block body %}
+    <h1>Edit Reglement</h1>
+
+    {{ include('reglement/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('reglement_index') }}">back to list</a>
+
+    {{ include('reglement/_delete_form.html.twig') }}
+{% endblock %}

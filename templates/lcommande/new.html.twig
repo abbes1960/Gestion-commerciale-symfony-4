@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Lcommande{% endblock %}
+
+{% block body %}
+    <h1>Create new Lcommande</h1>
+
+    {{ include('lcommande/_form.html.twig') }}
+
+    <a href="{{ path('lcommande_index') }}">back to list</a>
+{% endblock %}

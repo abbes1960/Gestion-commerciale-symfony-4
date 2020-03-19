@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Facture{% endblock %}
+
+{% block body %}
+    <h1>Facture</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ facture.id }}</td>
+            </tr>
+            <tr>
+                <th>Base0</th>
+                <td>{{ facture.base0 }}</td>
+            </tr>
+            <tr>
+                <th>Base1</th>
+                <td>{{ facture.base1 }}</td>
+            </tr>
+            <tr>
+                <th>Tva1</th>
+                <td>{{ facture.tva1 }}</td>
+            </tr>
+            <tr>
+                <th>Base2</th>
+                <td>{{ facture.base2 }}</td>
+            </tr>
+            <tr>
+                <th>Tva2</th>
+                <td>{{ facture.tva2 }}</td>
+            </tr>
+            <tr>
+                <th>Base3</th>
+                <td>{{ facture.base3 }}</td>
+            </tr>
+            <tr>
+                <th>Tva3</th>
+                <td>{{ facture.tva3 }}</td>
+            </tr>
+            <tr>
+                <th>Totht</th>
+                <td>{{ facture.totht }}</td>
+            </tr>
+            <tr>
+                <th>Totrem</th>
+                <td>{{ facture.totrem }}</td>
+            </tr>
+            <tr>
+                <th>Tottva</th>
+                <td>{{ facture.tottva }}</td>
+            </tr>
+            <tr>
+                <th>Timbre</th>
+                <td>{{ facture.timbre }}</td>
+            </tr>
+            <tr>
+                <th>Tottc</th>
+                <td>{{ facture.tottc }}</td>
+            </tr>
+            <tr>
+                <th>Rs</th>
+                <td>{{ facture.rs }}</td>
+            </tr>
+            <tr>
+                <th>Montrs</th>
+                <td>{{ facture.montrs }}</td>
+            </tr>
+            <tr>
+                <th>Net</th>
+                <td>{{ facture.net }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('facture_index') }}">back to list</a>
+
+    <a href="{{ path('facture_edit', {'id': facture.id}) }}">edit</a>
+
+    {{ include('facture/_delete_form.html.twig') }}
+{% endblock %}

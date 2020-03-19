@@ -1,0 +1,66 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Facture index{% endblock %}
+
+{% block body %}
+    <h1>Facture index</h1>
+
+    <table class="table" table-condensed>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Client</th>
+                <th>Base0</th>
+                <th>Base1</th>
+                <th>Tva1</th>
+                <th>Base2</th>
+                <th>Tva2</th>
+                <th>Base3</th>
+                <th>Tva3</th>
+                <th>Totht</th>
+                <th>Totrem</th>
+                <th>Tottva</th>
+                <th>Timbre</th>
+                <th>Tottc</th>
+                <th>Rs</th>
+                <th>Montrs</th>
+                <th>Net</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for facture in factures %}
+            <tr>
+                <td>{{ facture.id }}</td>
+                <td>{{ facture.client.libelle }}</td>
+                <td>{{ facture.base0 }}</td>
+                <td>{{ facture.base1 }}</td>
+                <td>{{ facture.tva1 }}</td>
+                <td>{{ facture.base2 }}</td>
+                <td>{{ facture.tva2 }}</td>
+                <td>{{ facture.base3 }}</td>
+                <td>{{ facture.tva3 }}</td>
+                <td>{{ facture.totht }}</td>
+                <td>{{ facture.totrem }}</td>
+                <td>{{ facture.tottva }}</td>
+                <td>{{ facture.timbre }}</td>
+                <td>{{ facture.tottc }}</td>
+                <td>{{ facture.rs }}</td>
+                <td>{{ facture.montrs }}</td>
+                <td>{{ facture.net }}</td>
+                <td>
+                    <a href="{{ path('facture_show', {'id': facture.id}) }}"class = "btn btn-info">show</a>
+                    <a href="{{ path('facture_edit', {'id': facture.id}) }}" class = "btn btn-warning">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('facture_new') }}"class = "btn btn-success">Create new</a>
+
+{% endblock %}

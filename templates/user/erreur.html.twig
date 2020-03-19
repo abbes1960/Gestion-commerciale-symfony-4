@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if app.session.flashBag.has('info') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('info') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+   
+{% endblock %}
